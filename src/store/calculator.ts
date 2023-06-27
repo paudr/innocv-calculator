@@ -62,9 +62,9 @@ export const useCalculator = defineStore({
     },
     startDecimal () {
       if (!this.closureStack[0].currentNumber) {
-        this.closureStack[0].currentNumber = '0,'
-      } else if (!this.closureStack[0].currentNumber.includes(',')) {
-        this.closureStack[0].currentNumber = this.closureStack[0].currentNumber + ','
+        this.closureStack[0].currentNumber = '.,'
+      } else if (!this.closureStack[0].currentNumber.includes('.')) {
+        this.closureStack[0].currentNumber = this.closureStack[0].currentNumber + '.'
       }
     },
     clearEntry () {

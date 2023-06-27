@@ -39,12 +39,16 @@ export function getOperationType (operation: string): string {
   return ''
 }
 
+function numberToString(number: number) : string {
+  return number.toLocaleString('en', { notation: 'standard', maximumFractionDigits: 20})
+}
+
 export const binaryOperation = {
   add: {
     action (closure: CalculatorClosure) {
       const firstOperand = Number(closure.accumulatedNumber || '0')
       const seccondOperand = Number(closure.currentNumber || '0')
-      closure.accumulatedNumber = String(firstOperand + seccondOperand)
+      closure.accumulatedNumber = numberToString(firstOperand + seccondOperand)
       closure.currentNumber = ''
     },
     symbol: '+'
@@ -53,7 +57,7 @@ export const binaryOperation = {
     action (closure: CalculatorClosure) {
       const firstOperand = Number(closure.accumulatedNumber || '0')
       const seccondOperand = Number(closure.currentNumber || '0')
-      closure.accumulatedNumber = String(firstOperand - seccondOperand)
+      closure.accumulatedNumber = numberToString(firstOperand - seccondOperand)
       closure.currentNumber = ''
     },
     symbol: '-'
@@ -62,7 +66,7 @@ export const binaryOperation = {
     action (closure: CalculatorClosure) {
       const firstOperand = Number(closure.accumulatedNumber || '0')
       const seccondOperand = Number(closure.currentNumber || '0')
-      closure.accumulatedNumber = String(firstOperand * seccondOperand)
+      closure.accumulatedNumber = numberToString(firstOperand * seccondOperand)
       closure.currentNumber = ''
     },
     symbol: '*'
@@ -71,7 +75,7 @@ export const binaryOperation = {
     action (closure: CalculatorClosure) {
       const firstOperand = Number(closure.accumulatedNumber || '0')
       const seccondOperand = Number(closure.currentNumber || '0')
-      closure.accumulatedNumber = String(firstOperand / seccondOperand)
+      closure.accumulatedNumber = numberToString(firstOperand / seccondOperand)
       closure.currentNumber = ''
     },
     symbol: '/'
@@ -82,7 +86,7 @@ export const unitaryOperation = {
   square: {
     action (closure: CalculatorClosure) {
       const operand = Number(closure.currentNumber || '0')
-      closure.accumulatedNumber = String(Math.pow(operand, 2))
+      closure.accumulatedNumber = numberToString(Math.pow(operand, 2))
       closure.currentNumber = ''
     },
     symbol: '^ \u00b2'

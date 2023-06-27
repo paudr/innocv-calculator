@@ -91,9 +91,9 @@ export const useCalculator = defineStore({
         this.closureStack[0].currentNumber = ''
         this.closureStack[0].currentOperation = operation
         if (this.closureStack.length === 1) {
-          this.operationFormulaStored = String(this.closureStack[0].accumulatedNumber)
+          this.operationFormulaStored = this.closureStack[0].accumulatedNumber
         } else {
-          this.operationFormulaStored += String(this.closureStack[0].accumulatedNumber)
+          this.operationFormulaStored += this.closureStack[0].accumulatedNumber
         }
       } else {
         if (this.closureStack[0].currentNumber) {

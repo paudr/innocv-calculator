@@ -16,7 +16,7 @@
     <button @click="$calculator.openParenthesis">(</button>
     <button @click="$calculator.closeParenthesis">)</button>
     <button @click="$calculator.setOperation('square')">x&#178;</button>
-    <button @click="$calculator.setOperation('sub')">/</button>
+    <button @click="$calculator.setOperation('div')">/</button>
     <button @click="$calculator.addDigit('7')">7</button>
     <button @click="$calculator.addDigit('8')">8</button>
     <button @click="$calculator.addDigit('9')">9</button>
